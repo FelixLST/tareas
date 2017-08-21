@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main_c()
+{
+    int he,hs,me,ms,se,ss,te,ts,sf,hf,mf;
+    float pt;
+
+    cout << "Aque hora entraste?\n";
+    cin>> he;
+    cout << "con cuantos minutos?\n";
+    cin>> me;
+    cout << "con cuantos segundos?\n";
+    cin>> se;
+     cout << "Aque hora saliste?\n";
+    cin>> hs;
+    cout << "con cuantos minutos?\n";
+    cin>> ms;
+    cout << "con cuantos segundos?\n";
+    cin>> ss;
+    he = he*3600;
+    me = me*60;
+    hs = hs*3600;
+    ms = ms*60;
+    te = he+me+se;
+    ts = hs+ms+ss;
+    pt = ts-te;
+    hf = pt/3600.00;
+    pt = (int)pt%3600;
+    mf = pt/60.00;
+    sf = (int)pt%60;
+
+    cout<< "Su tiempo total trabajado es de " << hf << " horas " << mf << " Minutos " << sf << " Segundos \n";
+    return 0;
+}
+
