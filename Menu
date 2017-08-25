@@ -1,0 +1,79 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int select;
+ do
+ {
+
+
+ cout << "Bienvenido a la calculadora limitada \n";
+ cout << "Para saber si un numero es primo precione 1 \n";
+ cout << "Para saber el vectorial de un numero precione 2 \n";
+ cout << "para saber el promedio de una serie de numeros precione 3\n";
+ cout << "para salir del menu teclee -1 \n";
+ cin >> select;
+
+    if(select==3)
+    {
+        int suma=0,num,cont=0;
+        float prom;
+        cout << " a selecionado el saber el promedio de una serie de numeros \n";
+        cout << "teclee los numeros que desee saber y para terminar teclee -1 \n";
+        do
+        {
+            cin >> num;
+            if(num==-1)
+                break;
+            else
+            {
+            suma+=num;
+            cont++;
+            }
+        }while(num!=-1);
+        prom= suma/cont;
+        cout << "el promedio total es de " << prom << "\n";
+    }
+    if(select==2)
+    {
+      int vec,total;
+  cout << "dame un numero \n";
+  cin >> vec;
+  total=vec;
+  for(int i=1; i<vec; i++)
+  {
+      total*=i;
+
+  }
+  cout << total << "\n";
+    }
+    if(select==1)
+    {
+    int pum,tum=0;
+    cout << "Dame un numero \n";
+    cin >> pum;
+
+    for(int i=1;i<=pum;i++)
+    {
+
+        if (pum%i==0)
+        {
+            tum++;
+        }
+
+    }
+    if(tum==2)
+    {
+        cout << "Tu numero es primo!! \n"<<tum;
+    }
+    else
+    {
+        cout << "tu numero  no es primo men \n"<<tum;
+    }
+
+
+    }
+  }while(select!=-1);
+}
