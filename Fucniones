@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+int vector(int);
+vector( int vec)
+{
+    int vec,total;
+  
+  total=vec;
+  for(int i=1; i<vec; i++)
+  {
+      total*=i;
+  }
+  return total;
+int main()
+{
+int select;
+ do
+ {
+
+
+ cout << "Bienvenido a la calculadora limitada \n";
+ cout << "Para saber la constante matematica e preicone 1 \n";
+ cout << "Para saber la constate matematica elevada al una potencia precione 2 \n";
+ cout << "para salir del menu teclee -1 \n";
+ cin >> select;
+
+    
+    if(select==1)
+    {
+     int e,tc;
+    cout << "Hata que valor quieres que la constante calcule? \n";
+    cin >> e;
+    for(int i=0; i<e; i++)
+        {
+          tc+=1/vector(i);
+        }   
+    tf+=1;
+    cout << "el valor de la constante es " << tc << "\n";
+}
+    }
+  cout << total << "\n";
+    
+    if(select==2)
+    {
+int c,te;
+    cout<< "dame la constante a usar y limite \n":
+    cin >> c;
+    
+    for(int i=0; i<c; i++)
+        {
+          te+=pow(c,i)/vector(i);
+        }   
+        te+=1;
+        cout << "el total de la constante elevada es " << te << "\n";
+    }
+    
+  }while(select!=-1);
+}
