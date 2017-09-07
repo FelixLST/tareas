@@ -1,0 +1,67 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int ObtRaiz(int n);
+int ObtenerX1(int n ,int b);
+int ObtenerX2(int n, int b);
+int Dividir2a(int n,int a);
+int ObtenerInteriorRaiz(int a, int b, int c );
+int main()
+{
+	int op;
+	
+	do
+	{
+        cout << "para salir del programa teclea -1, si no preciona cualquier otro numero \n";
+		cin >> op;
+		int a,b,c,paso1=0,paso2=0,x1=0,x2=0;
+		cout << "Este programa usa la formula general para obtener el valor de X \n";
+		cout << "Ingresa los valores de la ecuacion respetando el orden y los signos \n";
+		cout << "Las X cuadradas \n";
+		cin >> a;
+		cout << "Las X \n";
+		cin >> b;
+		cout << "La constante\n";
+		cin >> c;
+		paso1=ObtenerInteriorRaiz(a,b,c);
+		paso2=ObtRaiz(paso1);
+		x1=ObtenerX1(paso2,b);
+		x2=ObtenerX2(paso2,b);
+		x1=Dividir2a(x1,a);
+		x2=Dividir2a(x2,a);
+		cout << "los valores resultantes de la ecuacion son " << x1  << " y "<< x2 << "\n";
+	}while(op!=-1);
+
+}
+int ObtenerInteriorRaiz(int a,int b,int c)
+{
+	float res=0;
+	res=(b*b)-(4*a*c);
+	return res;
+}
+int ObtRaiz(int n)
+{
+	float raiz=0;
+	raiz=sqrt(n);
+	return raiz;
+}
+int ObtenerX1(int n,int b)
+{
+	float res=0;
+	res=-b+n;
+	return res;
+}
+int ObtenerX2(int n,int b)
+{
+	float res=0;
+	res=-b-n;
+	return res;
+}
+int Dividir2a(int n,int a)
+{
+	float res=0;
+	res=n/2.00*a;
+	return res;
+}
