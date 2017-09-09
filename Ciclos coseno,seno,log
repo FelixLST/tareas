@@ -1,0 +1,115 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+void coseno(int &x,int i);
+void seno(int &x,int i);
+void log(int &x,int i);
+int factorial(int x);
+
+int main()
+{
+int select;
+ do
+ {
+
+
+     cout << "Bienvenido a la calculadora limitada \n";
+     cout << "Para saber el seno de X precione 1\n";
+     cout << "Para saber el Logaritmo natural de X precione 2 \n";
+     cout << "para saber el Coseno de X precione 3\n";
+     cout << "para salir del menu teclee -1 \n";
+     cin >> select;
+     double x=0,n=0;
+
+    if(select==1)
+    {
+        cout << "inserta X \n";
+        cin >> x;
+        cout << "Cuantas veces quieres hacer el ciclo? \n";
+        cin >> n;
+        for(int i=0,cont=3; i<n; i++)
+        {
+            
+            seno(x,cont);
+            cont+=2;
+        }
+        
+        cout << "El seno de X es " << x << "\n";
+    }
+        
+    else if(select==2)
+    
+    {
+        cout << "inserta X \n";
+        cin >> x;
+        cout << "Cuantas veces quieres hacer el ciclo? \n";
+        cin >> n;
+        for(int i=1; i<=n; i++)
+        {
+            log(x,i);
+        }
+        
+        cout << "El logatimo de X es " << x << "\n";
+
+    }
+    
+    else if(select==3)
+    {
+         cout << "inserta X \n";
+        cin >> x;
+        cout << "Cuantas veces quieres hacer el ciclo? \n";
+        cin >> n;
+        for(int i=0,cont=2; i<n; i++)
+        {
+            
+            coseno(x,cont);
+            cont+=2;
+        }
+        
+        cout << "El coseno de X es " << x << "\n";
+    }
+  }while(select!=-1);
+
+}
+double factorial(int x)
+{
+     for(int i=x-1; i>=1; i--)
+    {
+        x*=i;
+    }
+    return x;
+}
+void coseno(int &x,int i)
+{
+        if(i%2==1)
+        {
+            x-=pow(x,i)/factorial(i);
+        }
+        else
+        {
+            x+=pow(x,i)/factorial(i);
+        }
+} 
+   
+  
+
+void seno(int &x,int i)
+{
+        if(i%2==1)
+        {
+            x-=pow(x,i)/factorial(i);  
+        }
+        else
+        {
+            x+=pow(x,i)/factorial(i);
+        }
+}
+
+   
+   
+
+void log(int &x,int i)
+{
+    x+=pow(((1.00/i)*(x-1)/x),i);
+}
