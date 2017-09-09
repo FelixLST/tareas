@@ -2,9 +2,9 @@
 #include <math.h>
 
 using namespace std;
-void coseno(int &x,int i);
-void seno(int &x,int i);
-void log(int &x,int i);
+void coseno(int &x,int i,double control);
+void seno(int &x,int i,double control);
+void log(int &x,int i,double control);
 int factorial(int x);
 
 int main()
@@ -20,7 +20,8 @@ int select;
      cout << "para saber el Coseno de X precione 3\n";
      cout << "para salir del menu teclee -1 \n";
      cin >> select;
-     double x=0,n=0;
+     double x=0,n=0,control=0;
+      
 
     if(select==1)
     {
@@ -28,10 +29,11 @@ int select;
         cin >> x;
         cout << "Cuantas veces quieres hacer el ciclo? \n";
         cin >> n;
+        control=x;
         for(int i=0,cont=3; i<n; i++)
         {
             
-            seno(x,cont);
+            x=seno(x,cont,control);
             cont+=2;
         }
         
@@ -45,9 +47,10 @@ int select;
         cin >> x;
         cout << "Cuantas veces quieres hacer el ciclo? \n";
         cin >> n;
+        control=x;
         for(int i=1; i<=n; i++)
         {
-            log(x,i);
+            x=log(x,i,control);
         }
         
         cout << "El logatimo de X es " << x << "\n";
@@ -60,10 +63,11 @@ int select;
         cin >> x;
         cout << "Cuantas veces quieres hacer el ciclo? \n";
         cin >> n;
+        control=x;
         for(int i=0,cont=2; i<n; i++)
         {
             
-            coseno(x,cont);
+            x=coseno(x,cont,control);
             cont+=2;
         }
         
@@ -80,36 +84,36 @@ double factorial(int x)
     }
     return x;
 }
-void coseno(int &x,int i)
+void coseno(int &x,int i,double control)
 {
         if(i%2==1)
         {
-            x-=pow(x,i)/factorial(i);
+            x-=pow(control,i)/factorial(i);
         }
         else
         {
-            x+=pow(x,i)/factorial(i);
+            x+=pow(control,i)/factorial(i);
         }
 } 
    
   
 
-void seno(int &x,int i)
+void seno(int &x,int i,double control)
 {
         if(i%2==1)
         {
-            x-=pow(x,i)/factorial(i);  
+            x-=pow(control,i)/factorial(i);  
         }
         else
         {
-            x+=pow(x,i)/factorial(i);
+            x+=pow(control,i)/factorial(i);
         }
 }
 
    
    
 
-void log(int &x,int i)
+void log(int &x,int i,double control)
 {
-    x+=pow(((1.00/i)*(x-1)/x),i);
+    x+=pow(((1.00/i)*(control-1)/control),i);
 }
