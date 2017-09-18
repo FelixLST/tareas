@@ -1,0 +1,91 @@
+#include <iostream>
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int Dado2();
+int Dado();
+void Histograma();
+
+int main()
+{
+	srand(time(NULL));
+	int op;
+	do
+	{
+		cout << "Bienvenido al casino!!\n";
+		cout << "Seleciona el modo de juego.\n";
+		cout << "Preciona 1 para un solo dado y 2 para dos dados y 0 para salir.\n";
+		cin >> op;
+		if(op==0)
+			return 0;
+		else if(op==1)
+			{
+				int Dados[100];
+				int Cont[6];
+				//Ciclo para limpiar el vector contador.
+				for(int l=0;l<=6;l++)
+					Cont[l]=0;
+				cout <<"Este progreama simula el lansar un dado 100 veces. \n";
+				//Ciclo para llenar el vector
+				for(int i=0; i<100; i++)
+					{
+						Dados[i]=Dado();
+					}
+				//Ciclo para contar de 1 a 1 los numeros puestos en el vector.
+				for(int k=0;k<100;k++)
+				{
+					//reiniciar el ciclo
+
+					for(int p=0;p<=6; p++)
+					{
+						if(Dados[k]==p)
+							Cont[p]++;
+					}
+				}
+				for(int j=1;j<=6;j++)
+					cout << "El numero " << j << " Salio " << Cont[j] << " veces ";
+					Histograma(Dados[j]);
+			}
+			else if(op==2)
+				{
+					int Dados[10]={0};
+						for(int i=0; i<100; i++)
+						{
+							int pos;
+							pos=Dado2();
+							Dados[pos-2]++;
+						}
+					for(int k=0; k<12; k++)
+						{
+							cout << "El numero " << k+1 << " salio " << Dados[k] << " veces ";
+							Histograma(Dados[k]);
+
+						}
+				}
+
+
+	}while(op!=0);
+}
+int Dado2()
+{
+int suma=0;
+suma=1+rand()%6;
+suma+=1+rand()%6;
+
+return suma;
+}
+int Dado()
+{
+int dado;
+dado=1+rand()%6;
+return dado;
+}
+void Histograma(int n)
+{
+    for(int i=0; i<n;i++)
+    {
+        cout << '*';
+    }
+    cout << "\n";
+}
