@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+void buscador(int v[], int tam);
+void Imprimir(int v[], int tam);
+
+int main()
+{
+    int v[1000];
+    for(int i=0; i<1000; i++)
+    {
+        v[i]=1;
+    }
+
+    buscador(v,1000);
+
+    Imprimir(v,1000);
+
+}
+void buscador(int v[],int tam)
+{
+    int cont;
+    for(int i=2;i<tam; i++)
+    {
+        if(v[i]==1)
+        {
+            cont=i*2;
+            while(cont<tam)
+            {
+                v[cont]=0;
+                cont+=i;
+            }
+        }
+    }
+}
+void Imprimir(int v[],int tam)
+{
+    for(int i=0; i<tam; i++)
+    {
+        if(v[i]==1)
+            cout << i << endl;
+    }
+}
