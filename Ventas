@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+
+int ResuVentasPer(int m[][6],int r);
+int ResuProdu(int m[][6],int r,p);
+void Añadir(int m[][6],int r,int a,int v,int p);
+int Menu();
+void TablaRes(int m[][6],int r);
+
+int main()
+{
+	int m[5][6]={0},op,a,v,p;
+	cout << "Sistema de administracion de ventas MKI\n";
+	cout << "Este sistema es para administrar la venta por vendedor y producto\n";
+	do
+	{
+		op=Menu();
+		if(op==1)
+		{
+			cout << "Cuanto se vendio?\n";
+			cin >> a;
+			cout "Quien lo vendio?\n";
+			cin >> v;
+			cout << "Que producto?\n";
+			cin >> p;
+			Añadir(m,6,a,v,p);
+		}
+		else if(op==2)
+		{
+			cout << "De que producto desea saber el resumen?\n";
+			cin p;
+			cout << ResuProdu(m,6,p);
+		}
+		else if(op==3)
+		{
+			cout << "De que vendedor desea saber el resumen?\n";
+			cin >> v;
+			cout << ResuVentasPer(m,6,v);
+		}
+		
+	}while(op!=0);
+
+}
+int Menu()
+{
+	int op;
+	cout << "Para añadir una venta precione 1\n";
+	cout << "Para mostrar el resumen por procucto preicone 2\n";
+	cout << "para mostrar el resumen por vendedor precione 3\n";
+	cin >> op;
+	return op;
+}
+void Añadir(int m[][6],int r,int a,int v,int p)
+{
+	m[v][p]+=a;
+}
+int ResuVentasPer(int m[][6],int r,int v)
+{
+	int res;
+	for(int i=0; i<5; i++)
+	{
+		res+=m[v][i];
+	}
+	return res;
+}
+int ResuProdu(int m[][6],int r,int p)
+{
+	int res;
+	for(int i=0; i<6; i++)
+	{
+		res+=m[i][p];
+	}
+	return res;
+}
+void TablaRes(int m[][6],int r)
+{
+	for(int i=0; i<r-1; i++)
+	{
+		for(int k=0; k<6; k++)
+		{
+			cout << m[i][k] << ',';
+		}
+		cout << ResuVentasPer(m,r,i) << endl;
+	}
+	for(int c=0; c<6; c++)
+	{
+		 cout << ResuProdu(m,r,c) << ',';
+	}
+}
+
+
+
+
