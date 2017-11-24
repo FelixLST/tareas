@@ -3,18 +3,22 @@
 
 using namespace std;
 void Menu();
-int Moda(int NumPregun); //Regresa la moda de la preguntra dada
-int Contador(int NumPregun); //Cuenta las respuestra de la pregunta dada y da la frecuencia de cada una
-int FrecuenciaRelativaYAcum(int NumPregun); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada
-void LectorPrincipal(); //Lee todo el archivo de exel-Felix
-void impresorExelDatos(int NumPregun);// Crea un archivo con los datos del resumen-Felix
-void LectorPregunta(int NumPregun);//Lee solo los datos de la preungta dada
-void ResumenGeneral();//Imprime en pantalla los datos de todo el archivo (Todas las modas, todas las fecuencias,etc)
+int Moda(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada
+int Contador(int NumPregun,int Contador[365]); //Cuenta las respuestra de la pregunta dada y da la frecuencia de cada una
+int FrecuenciaRelativaYAcum(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada
+void LectorPrincipal(Char Respuestas[][73],int r); //Lee todo el archivo de exel-Felix
+void impresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73]int r);// Crea un archivo con los datos del resumen-Felix
+void LectorPregunta(int NumPregun,char RespuestaColum[365]);//Lee solo los datos de la preungta dada
+void ResumenGeneral(int Contador[365],Char IndiPregun[73], char Respuestas[][73],int r);//Imprime en pantalla los datos de todo el archivo (Todas las modas, todas las fecuencias,etc)
 
 int main()
 {
-	fstream 
+	ifstream archi("c:\\datos\\PIBaseDeDatos.xlsx",ios::in)
 	int op,Numpregun;
+	char IndiPregun[73];
+	char Respuestas[365][73];
+	char RespuestaColum[365][10];
+	int Contador[365];
 	do
 	{
 		op=Menu();
@@ -66,11 +70,12 @@ void Menu();
 	cin >> op;
 	return op;
 }
-void impresorExelDatos(int NumPregun);
+void impresorExelDatos(int NumPregun);//poner una oopcion para imprimir todo el archivo y no solo 1 pregunta.
 {
 
 }
 void LectorPrincipal();
 {
+	ifstream archi("c:\\datos\\PIBaseDeDatos.xlsx",ios::in);
 
 }
