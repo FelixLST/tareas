@@ -4,10 +4,10 @@
 using namespace std;
 void Menu();
 int Moda(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada
-int ModaImp(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada
+int ModaImp(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada para imprimir en archivo
 int Contador(int NumPregun,int Contador[365]); //Cuenta las respuestra de la pregunta dada y da la frecuencia de cada una
 int FrecuenciaRelativaYAcum(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada
-int FrecuenciaRelativaYAcumImp(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada
+int FrecuenciaRelativaYAcumImp(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada para imprimir en archivo
 void LectorPrincipal(Char Respuestas[][73],char IndiPregun[73], int r); //Lee todo el archivo de exel-Felix
 void ImpresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73],int r);// Crea un archivo con los datos del resumen-Felix
 void LectorPregunta(int NumPregun,char RespuestaColum[365]);//Lee solo los datos de la preungta dada
@@ -72,21 +72,35 @@ void Menu();
 	cin >> op;
 	return op;
 }
-void ImpresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73],int r,int Contador[365])//poner una oopcion para imprimir todo el archivo y no solo 1 pregunta.
+void ImpresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73],int r,int Contador[365])//poner una oopcion para imprimir todo el archivo y no solo 1 pregunta la cual sera poner en Numpregun el numero 21
 {
-	ifstream archi("c:\\datos\\ResultadoDeEncuenstas.xlsx",ios::out);
-		for(int i=0; i<73; i++)
+	if(Numpregun==21)
 	{
-		arch<<IndiPregun[i];
-	}
-	for(int c=0; c<20; c++)
-	{
-		arch<<"Los resultados de la pregunta " << c << " Son" << endl;
-		arch<<"Moda" << endl;
-		ModaImp(c,Contador);
-		arch<<"Frecuencia relativa y acumulada "<<endl;
-		FrecuenciaRelativaYAcumImp(c,Contador);
 
+
+		ifstream archi("c:\\datos\\ResultadoDeEncuenstas.xlsx",ios::out);
+			for(int i=0; i<73; i++)
+		{
+			arch<<IndiPregun[i];
+		}
+		for(int c=0; c<20; c++)
+		{
+			arch<<"Los resultados de la pregunta " << c << " Son" << endl;
+			arch<<"Moda" << endl;
+			ModaImp(c,Contador);
+			arch<<"Frecuencia relativa y acumulada "<<endl;
+			FrecuenciaRelativaYAcumImp(c,Contador);
+
+		}
+	}
+	else
+	{
+		ifstream archi("c:\\datos\\ResultadoDeEncuenstasPreguntaIndividual.xlsx",ios::out);
+		arch<<"Los resultados de la pregunta " << Numpregun << " Son" << endl;
+		arch<<"Moda" << endl;
+		ModaImp(Numpregun,Contador);
+		arch<<"Frecuencia relativa y acumulada "<<endl;
+		FrecuenciaRelativaYAcumImp(Numpregun,Contador);
 	}
 	
 
