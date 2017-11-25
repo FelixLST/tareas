@@ -3,11 +3,11 @@
 
 using namespace std;
 void Menu();
-int Moda(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada
-int ModaImp(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada para imprimir en archivo
-int Contador(int NumPregun,int Contador[365]); //Cuenta las respuestra de la pregunta dada y da la frecuencia de cada una
-int FrecuenciaRelativaYAcum(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada
-int FrecuenciaRelativaYAcumImp(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada para imprimir en archivo
+void Moda(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada
+void ModaImp(int NumPregun,int Contador[365]); //Regresa la moda de la preguntra dada para imprimir en archivo
+void Contador(int NumPregun,int Contador[365]); //Cuenta las respuestra de la pregunta dada y da la frecuencia de cada una
+void FrecuenciaRelativaYAcum(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada
+void FrecuenciaRelativaYAcumImp(int NumPregun,int Contador[365]); //Regresa la fecuencia relativa y acumulada de los resultados de la pregunta dada para imprimir en archivo
 void LectorPrincipal(Char Respuestas[][73],char IndiPregun[73], int r); //Lee todo el archivo de exel-Felix
 void ImpresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73],int r);// Crea un archivo con los datos del resumen-Felix
 void LectorPregunta(int NumPregun,char RespuestaColum[365]);//Lee solo los datos de la preungta dada
