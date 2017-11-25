@@ -15,7 +15,7 @@ void ResumenGeneral(int Contador[365],Char IndiPregun[73], char Respuestas[][73]
 
 int main()
 {
-	ifstream archi("c:\\datos\\PIBaseDeDatos.xlsx",ios::in)
+	ifstream arch("c:\\datos\\PIBaseDeDatos.xlsx",ios::in)
 	int op,Numpregun;
 	char IndiPregun[73];
 	char Respuestas[365][73];
@@ -78,7 +78,7 @@ void ImpresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73],
 	{
 
 
-		ifstream archi("c:\\datos\\ResultadoDeEncuenstas.xlsx",ios::out);
+		ifstream arch("c:\\datos\\ResultadoDeEncuenstas.xlsx",ios::out);
 			for(int i=0; i<73; i++)
 		{
 			arch<<IndiPregun[i];
@@ -95,7 +95,7 @@ void ImpresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73],
 	}
 	else
 	{
-		ifstream archi("c:\\datos\\ResultadoDeEncuenstasPreguntaIndividual.xlsx",ios::out);
+		ifstream arch("c:\\datos\\ResultadoDeEncuenstasPreguntaIndividual.xlsx",ios::out);
 		arch<<"Los resultados de la pregunta " << Numpregun << " Son" << endl;
 		arch<<"Moda" << endl;
 		ModaImp(Numpregun,Contador);
@@ -108,16 +108,16 @@ void ImpresorExelDatos(int NumPregun,char IndiPregun[73], char Respuestas[][73],
 
 void LectorPrincipal(Char Respuestas[][73],char IndiPregun[73], int r)
 {
-	ifstream archi("c:\\datos\\PIBaseDeDatos.xlsx",ios::in);
+	ifstream arch("c:\\datos\\PIBaseDeDatos.xlsx",ios::in);
 	for(int i=0; i<73; i++)
 	{
-		archi.getline()>>IndiPregun[i];
+		arch.getline()>>IndiPregun[i];
 	}
 	for(int c=0; c<73; c++)
 	{
 		for(int k=0; k<r; k++)
 		{
-			archi>>Respuestas[K][C];
+			arch>>Respuestas[K][C];
 		}
 	}
 
